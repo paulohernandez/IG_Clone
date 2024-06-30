@@ -9,7 +9,7 @@ class StoryCarousel extends StatelessWidget {
       height: 100,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 1,
+        itemCount: 5,
         itemBuilder: (_, index) {
           return const StoryProfileIcon();
         },
@@ -58,6 +58,15 @@ class StoryProfileIcon extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                 ),
               ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Image.asset(
+                  'assets/images/dummy/dummy_profile_photo.jpg',
+                  height: 55,
+                  width: 55,
+                  fit: BoxFit.cover,
+                ),
+              )
             ],
           ),
           const Text('UserName'),
