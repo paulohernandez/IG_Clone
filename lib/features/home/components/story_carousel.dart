@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ig_clone/core/components/profile_icon.dart';
 
 class StoryCarousel extends StatelessWidget {
   const StoryCarousel({super.key});
@@ -6,71 +7,22 @@ class StoryCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (_, index) {
-          return const StoryProfileIcon();
-        },
-      ),
-    );
-  }
-}
-
-class StoryProfileIcon extends StatelessWidget {
-  const StoryProfileIcon({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Column(
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                height: 70,
-                width: 70,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Color(0xFFFE02B7),
-                      Color(0xFFFC2278),
-                      Color(0xFFFF2160),
-                      Color(0xFFFF5234),
-                      Color(0xFFFFD702),
-                    ],
-                  ),
-                  borderRadius: BorderRadius.circular(100),
-                ),
-              ),
-              Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(100),
-                ),
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.asset(
-                  'assets/images/dummy/dummy_profile_photo.jpg',
-                  height: 55,
-                  width: 55,
-                  fit: BoxFit.cover,
-                ),
-              )
-            ],
-          ),
-          const Text('UserName'),
-        ],
+      height: 120,
+      child: ScrollConfiguration(
+        behavior: const ScrollBehavior().copyWith(overscroll: false),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (_, index) {
+            return const ProfileIcon(
+              height: 90,
+              width: 90,
+              leftPadding: 10,
+              storyState: 'none',
+              isNameVisible: true,
+            );
+          },
+        ),
       ),
     );
   }

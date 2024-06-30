@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ig_clone/core/components/feed_post.dart';
 import 'package:ig_clone/features/home/components/home_app_bar.dart';
 import 'package:ig_clone/features/home/components/home_bottom_navbar.dart';
 import 'package:ig_clone/features/home/components/story_carousel.dart';
@@ -20,6 +21,9 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   StoryCarousel(),
+                  FeedPost(),
+                  FeedPost(),
+                  FeedPost(),
                 ],
               ),
             ),
@@ -30,5 +34,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
