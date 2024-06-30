@@ -19,14 +19,14 @@ class FeedPost extends StatelessWidget {
               const Row(
                 children: [
                   ProfileIcon(
-                    height: 40,
-                    width: 40,
+                    height: 45,
+                    width: 45,
                     leftPadding: 0,
-                    storyState: 'have',
+                    storyState: 'none',
                     isNameVisible: false,
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 8,
                   ),
                   Text('Elon Musk'),
                 ],

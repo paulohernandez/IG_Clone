@@ -12,14 +12,32 @@ class StoryCarousel extends StatelessWidget {
         behavior: const ScrollBehavior().copyWith(overscroll: false),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 10,
+          itemCount: 2,
           itemBuilder: (_, index) {
-            return const ProfileIcon(
-              height: 90,
-              width: 90,
-              leftPadding: 10,
-              storyState: 'none',
-              isNameVisible: true,
+            // return const ProfileIcon(
+            //   height: 90,
+            //   width: 90,
+            //   leftPadding: 10,
+            //   storyState: 'have',
+            //   isNameVisible: true,
+            // );
+            return const Row(
+              children: [
+                ProfileIcon(
+                  height: 90,
+                  width: 90,
+                  leftPadding: 10,
+                  isNameVisible: true,
+                  storyState: 'have',
+                ),
+                ProfileIcon(
+                  height: 90,
+                  width: 90,
+                  leftPadding: 10,
+                  isNameVisible: true,
+                  storyState: 'has',
+                ),
+              ],
             );
           },
         ),
