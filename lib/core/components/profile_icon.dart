@@ -57,6 +57,7 @@ class ProfileIcon extends StatelessWidget {
         ],
       ),
     };
+
     return Padding(
       padding: EdgeInsets.only(left: leftPadding),
       child: Column(

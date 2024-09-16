@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:ig_clone/core/components/feed_post.dart';
-import 'package:ig_clone/features/home/components/home_app_bar.dart';
-import 'package:ig_clone/features/home/components/home_bottom_navbar.dart';
-import 'package:ig_clone/features/home/components/story_carousel.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: Scaffold(
-        appBar: const HomeAppbar(),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          color: Colors.white,
-          child: const SingleChildScrollView(
-            child: Center(
-              child: Column(
-                children: [
-                  StoryCarousel(),
-                  FeedPost(),
-                  FeedPost(),
-                  FeedPost(),
-                ],
-              ),
-            ),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Diaries',
         ),
-        bottomNavigationBar: const HomeBottomNavBar(),
+        actions: [
+          FilledButton(
+              style: FilledButton.styleFrom(
+                shape: const CircleBorder(),
+                backgroundColor: Theme.of(context).colorScheme.primary,
+              ),
+              onPressed: () {},
+              child: const Icon(
+                Icons.person,
+                color: Colors.white,
+              )),
+        ],
+      ),
+      body: Column(
+        children: [],
       ),
     );
   }
