@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ig_clone/features/landing/presentation/landing_page.dart';
+import 'package:ig_clone/features/sign_in/presentation/sign_in_page.dart';
 
 class AppRouting {
   static final GoRouter router = GoRouter(
@@ -10,6 +11,15 @@ class AppRouting {
         builder: (BuildContext context, GoRouterState state) {
           return const LandingPage();
         },
+        routes:<GoRoute>[
+          GoRoute(
+            name: 'signin',
+            path: 'signin',
+            builder: (BuildContext context, GoRouterState state) {
+              return const SignInPage();
+            },
+          ),
+        ],
       ),
     ],
   );
