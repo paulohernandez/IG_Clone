@@ -7,8 +7,20 @@ class SignInRemoteRepositoryImpl implements SignInRemoteRepository {
   }) : _signInRemoteDatasource = signInRemoteDatasource;
 
   final SignInRemoteDatasource _signInRemoteDatasource;
+
   @override
   Future<String> remoteId() {
     return Future.value(_signInRemoteDatasource.remoteId);
+  }
+
+  @override
+  Future<void> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    return _signInRemoteDatasource.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 }

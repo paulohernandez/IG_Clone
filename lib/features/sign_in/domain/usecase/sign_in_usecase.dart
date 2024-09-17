@@ -7,7 +7,17 @@ class SignInUsecase {
 
   final SignInRemoteRepositoryImpl _signInRemoteRepositoryImpl;
 
-  Future<String> readRemoteId(){
+  Future<String> readRemoteId() {
     return _signInRemoteRepositoryImpl.remoteId();
+  }
+
+  Future<void> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) {
+    return _signInRemoteRepositoryImpl.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 }
