@@ -10,8 +10,14 @@ class LandingBloc extends Bloc<LandingEvent, LandingState> {
     required LandingUsecase landingUsecase,
   })  : _landingUsecase = landingUsecase,
         super(LandingInitial()) {
-    on<LandingEvent>((event, emit) {
-      // TODO: implement event handler
+    on<LandingInitEvent>((event, emit) {
+      final isExpired = _landingUsecase.checkSession();
+
+      if (!isExpired) {
+        emit(LandingLoaded());
+      } else {
+        emit(LandingError());
+      }
     });
   }
   final LandingUsecase _landingUsecase;

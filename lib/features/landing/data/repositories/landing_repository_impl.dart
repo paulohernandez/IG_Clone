@@ -11,4 +11,9 @@ class LandingRemoteRepositoryImpl implements LandingRemoteRepository {
   Future<String> remoteId() {
     return Future.value(_landingRemoteDatasource.remoteId);
   }
+
+  @override
+  bool checkSession() {
+    return _landingRemoteDatasource.checkSession();
+  }
 }

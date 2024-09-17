@@ -7,7 +7,11 @@ class LandingUsecase {
 
   final LandingRemoteRepositoryImpl _landingRemoteRepositoryImpl;
 
-  Future<String> readRemoteId(){
+  Future<String> readRemoteId() {
     return _landingRemoteRepositoryImpl.remoteId();
+  }
+
+  bool checkSession() {
+    return _landingRemoteRepositoryImpl.checkSession();
   }
 }
