@@ -8,4 +8,7 @@ class LandingRemoteDatasource {
 
   String remoteId = '1';
 
+  bool checkSession() {
+    return _supabaseClient.auth.currentSession?.isExpired ?? true;
+  }
 }
