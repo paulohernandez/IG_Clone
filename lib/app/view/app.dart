@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ig_clone/features/home/home_page.dart';
+import 'package:ig_clone/app/routing/app_routing.dart';
 import 'package:ig_clone/l10n/l10n.dart';
 
 class CustomThemeData {
@@ -19,7 +19,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final goRouter = AppRouting.router;
+
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark().copyWith(
         textTheme: GoogleFonts.robotoCondensedTextTheme(),
@@ -29,13 +31,11 @@ class App extends StatelessWidget {
         textTheme: GoogleFonts.robotoCondensedTextTheme(),
         colorScheme: CustomThemeData().colorScheme,
       ),
+      routeInformationProvider: goRouter.routeInformationProvider,
+      routerDelegate: goRouter.routerDelegate,
+      routeInformationParser: goRouter.routeInformationParser,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const SizedBox.expand(
-        child: Scaffold(
-          body: HomePage(),
-        ),
-      ),
     );
   }
 }

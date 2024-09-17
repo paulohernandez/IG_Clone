@@ -30,11 +30,15 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   Bloc.observer = const AppBlocObserver();
 
+  WidgetsFlutterBinding.ensureInitialized();
+
   await initializeSupabase();
   // Add cross-flavor configuration here
 
-  runApp(Provider<SupabaseClient>(
-    create: (_) => Supabase.instance.client,
-    child: await builder(),
-  ));
+  runApp(
+    Provider<SupabaseClient>(
+      create: (_) => Supabase.instance.client,
+      child: await builder(),
+    ),
+  );
 }
