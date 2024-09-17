@@ -10,9 +10,18 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     required SignInUsecase signInUsecase,
   })  : _signInUsecase = signInUsecase,
         super(SignInInitial()) {
-    on<SignInEvent>((event, emit) {
-      // TODO: implement event handler
+    on<SignInButtonTappedEvent>((event, emit) async {
+      try {
+        await _signInUsecase.signInWithEmailAndPassword(
+          email: event.email,
+          password: event.password,
+        );
+        emit(SignInLoaded());
+      } catch (e) {
+        emit(const SignInError(message: 'Invalid credentials'));
+      }
     });
   }
+
   final SignInUsecase _signInUsecase;
 }

@@ -12,12 +12,12 @@ class SignInRemoteDatasource {
     required String email,
     required String password,
   }) async {
-    final res = await _supabaseClient.auth.signInWithPassword(
-      email: email,
-      password: password,
-    );
+      final res = await _supabaseClient.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
 
-    final session = res.session;
-    final user = res.user;
+      final session = res.session;
+      final user = res.user;
   }
 }
